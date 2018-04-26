@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Admin Login</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="card">
+				<div class="card-header"><h2>Admin Login</h2></div>
+				<div class="card-body">
+					<form name="adminLogin" ng-submit="login()">
+						<div class="form-group">
+							<label for="adminId">Id</label>
+							<input type="text" name="adminId" class="form-control" id="adminId" ng-model="admin.adminId" required>
+							<p style="color:red;" ng-show="adminLogin.adminId.$invalid && adminLogin.adminId.$dirty" class="help-block">adminId is required.</p>
+						</div>
+
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" name="password" class="form-control" id="password" ng-model="admin.password" required>
+							<p style="color:red;" ng-show="adminLogin.password.$invalid && !adminLogin.password.$pristine" class="help-block">password is required.</p>
+						</div>
+
+						<button type="submit" class="btn btn-primary" ng-disabled="adminLogin.$invalid">Log In</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

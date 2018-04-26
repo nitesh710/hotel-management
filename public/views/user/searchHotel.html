@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Search Hotel</title>
+		
+		<style type="text/css">
+		    body {
+			    font-family: Arial;
+			}
+
+			.overlay-content {
+			    position: relative;
+			    top: 46%;
+			    width: 80%;
+			    text-align: center;
+			    margin-top: 30px;
+			    margin: auto;
+			}
+			.overlay input[type=text] {
+			    padding: 15px;
+			    font-size: 17px;
+			    border: 1px solid #f1f1f1;
+			    float: left;
+			    width: 80%;
+			    background: white;
+			}
+			.overlay input[type=text]:hover {
+			    background: #f1f1f1;
+			}
+			.overlay button {
+			    float: left;
+			    width: 20%;
+			    padding: 15px;
+			    background: #ddd;
+			    font-size: 17px;
+			    border: 1px solid #f1f1f1;
+			    cursor: pointer;
+			}
+			.overlay button:hover {
+			    background: #bbb;
+			}
+			.overlay-list{
+				position: relative;
+			    top: 46%;
+			    width: 80%;
+			    text-align: left;
+			    margin-top: 30px;
+			    margin: auto;
+			}
+
+			.overlay-list ul{
+				margin-top: 10px;
+			    float: left;
+			    width: 100%;
+			    background: white;
+			}
+
+			.overlay-list li:hover{
+				background: #f1f1f1;
+			}
+			.overlay-form{
+				position: relative;
+			    top: 46%;
+			    width: 80%;
+			    text-align: left;
+			    margin-top: 30px;
+			    margin: auto;
+			}
+			.overlay-form form{
+				margin-top: 40px;
+			    float: left;
+			    width: 100%;
+			    background: white;
+			}
+
+			.bg-img {
+			    /* The image used */
+			    background-image: url("images/hotel-image1.jpg");
+
+			    min-height: 500px;
+
+			    /* Center and scale the image nicely */
+			    background-position: center;
+			    background-repeat: no-repeat;
+			    background-size: cover;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+			  <!-- Links -->
+			  <ul class="navbar-nav">
+			    <li class="nav-item">
+			      <a class="nav-link active" href="#!/signUp">Sign Up</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#!/signIn">Sign In</a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+
+		<div class="container-fluid bg-img" style="margin-top: 36px;">
+
+			  <div class="overlay">
+				<div class="overlay-content">
+					<br>
+					<br>
+					<br>
+					<br>
+					<form name="searchForm" ng-submit="search()">
+						<input type="text" placeholder="Search.." name="search" ng-model="searchString">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+			 </div>
+
+			<div class="overlay-list">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item" ng-repeat="hotel in hotelList | filter : searchString" ng-click="onClickHotel(hotel)">
+						<a href="#!/hotel">{{ hotel }}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+
+			 <div class="album py-5 bg-light">
+		        <div class="container">
+
+		          <div class="row">
+		            <div class="col-md-4">
+		              <div class="card mb-4 box-shadow">
+		                <img class="card-img-top" src="images/hotel-image1.jpg" alt="Card image cap">
+		                <div class="card-body">
+		                  <h4>Raddison Blu</h4>
+		                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		              <div class="card mb-4 box-shadow">
+		                <img class="card-img-top" src="images/hotel-image2.jpg" alt="Card image cap">
+		                <div class="card-body">
+		                <h4>Ashiyana Hotel</h4>
+		                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="col-md-4">
+		              <div class="card mb-4 box-shadow">
+		                <img class="card-img-top" src="images/hotel-image3.jpg" alt="Card image cap">
+		                <div class="card-body">
+		                <h4>Hotel Pride</h4>
+		                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+
+		</div>
+	</body>
+</html>
