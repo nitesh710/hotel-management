@@ -45,4 +45,12 @@ angular.module('routes', [])
 		templateUrl: '../views/reception/updateForm.html',
 		controller: 'hotelUpdateCtrl'
 	})
+	.when('/loginAdmin', {
+		templateUrl: '../views/admin/adminLogin.html',
+		controller: 'adminLoginCtrl'
+	})
+	.when('/adminPanel', {
+		templateUrl: '../views/admin/adminPanel.html',
+		controller: 'adminPanelCtrl'
+	})
 }]);

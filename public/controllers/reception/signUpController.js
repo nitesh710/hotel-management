@@ -12,7 +12,7 @@ angular.module('signUpController', [])
 		.then(function onSuccess(response){
 			//handle on success
 			console.log(response.data);
-			$location.path('/roomFacility');
+			$location.path('/loginHotel');
 		}, function onError(response){
 			//handle on error
 			console.log(response.data);

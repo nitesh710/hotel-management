@@ -9,7 +9,7 @@ var receptionSchema = new Schema({
 	email: String,
 	city: String,
 	state: String,
-	pincode: String,
+	pinCode: String,
 	mobile: String,
 	hotelId: {type: String, required: true, unique: true},
 	password: {type: String, required: true}

@@ -3,10 +3,54 @@ var router = express.Router();
 
 var Reception = require('../models/reception');
 var Hotel = require('../models/hotel');
-var Single = require('../models/single');
-var Two = require('../models/two');
-var Four = require('../models/four');
+var Admin = require('../models/admin');
 var User = require('../models/user');
+
+//=====================Admin Routes===============================
+
+router.post('/loginAdmin', function(req, res){
+	Admin
+	.findOne({adminId: req.body.adminId})
+	.exec( (err, admin) => {
+		if (!admin) {
+			return res.status(500).send({"message": "Admin Not Valid"});
+		}
+		else{
+			if (admin.password === req.body.password) {
+				return res.status(200).send(JSON.stringify(admin));
+			}
+			else{
+				return res.send({"message": "Invalid Credential"});
+			}
+		}
+	});
+});
+
+router.get('/getAllHotels/', function(req, res){
+	Reception
+	.find({})
+	.exec( (err, receptions) => {
+		if (!receptions) {
+			return res.send({"message": "Error Occured!"});
+		}
+		else{
+			return res.send(JSON.stringify(receptions));
+		}
+	})
+});
+
+router.delete('/deleteHotel/:id', function(req, res){
+	Reception
+	.findByIdAndRemove({_id: req.params.id})
+	.exec( (err, reception) => {
+		if (!reception) {
+			return res.send({"message": "Hotel not deleted!"});
+		}
+		else{
+			return res.send({"message": "Document Deleted!", "id": reception._id});
+		}
+	});
+});
 
 //=====================Hotel Routes===============================
 

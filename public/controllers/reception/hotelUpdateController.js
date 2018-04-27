@@ -13,13 +13,14 @@ angular.module('hotelUpdateController', [])
 		console.log("/getHotel : ");
 		console.log(response.data);
 		hotels = response.data;
+		$scope.hotel = hotels;
 		$scope.roomAvail = response.data.roomAvail;
 		$scope.adult = response.data.rentAdult;
 		$scope.child = response.data.rentChild;
 		$scope.laundary = response.data.laundary;
 		$scope.food = response.data.food;
 	}, function onError(response){
-
+		console.log(response.data);
 	});
 
 	$scope.editForm = function(){
